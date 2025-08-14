@@ -2,7 +2,7 @@ class Solution {
 public:
     int myAtoi(string s) {
     long long result=0;
-    int n= s.length();
+    int n= s.size();
     int i=0;
     int sign =1;
     while(i<n&&s[i]==' '){
