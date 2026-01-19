@@ -7,20 +7,20 @@ public:
             total += cardPoints[i];
         }
         int windowSize = n - k;
-        
+
         int windowSum = 0;
         for (int i = 0; i < windowSize; i++) {
             windowSum += cardPoints[i];
         }
-        
-        int minWindowSum = windowSum;
+
+        int minsum = windowSum;
         for (int i = windowSize; i < n; i++) {
             windowSum = windowSum + cardPoints[i] - cardPoints[i - windowSize];
-            if (windowSum < minWindowSum) {
-                minWindowSum = windowSum;
+            if (windowSum < minsum) {
+                minsum = windowSum;
             }
         }
-        
-        return total - minWindowSum;
+
+        return total - minsum;
     }
 };
