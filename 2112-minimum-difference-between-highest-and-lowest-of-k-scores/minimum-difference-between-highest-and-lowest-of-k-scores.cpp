@@ -7,8 +7,11 @@ public:
         sort(nums.begin(), nums.end());
 
         int ans = INT_MAX;
-        for (int i = 0; i + k - 1 < nums.size(); i++) {
-            ans = min(ans, nums[i + k - 1] - nums[i]);
+        int l=0;
+        while(k+l-1<nums.size()) {
+            ans = min(ans, nums[k+l-1] - nums[l]);
+            
+            l++;
         }
 
         return ans;
