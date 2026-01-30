@@ -3,21 +3,21 @@ public:
     int countPrimes(int n) {
      if (n <= 2) return 0;
 
-        vector<bool> isPrime(n, true);
-        isPrime[0] = false;
-        isPrime[1] = false;
+        vector<bool> checkPrime(n, true);
+        checkPrime[0] = false;
+        checkPrime[1] = false;
 
         for (int i = 2; i * i < n; i++) {
-            if (isPrime[i]) {
+            if (checkPrime[i]) {
                 for (int j = i * i; j < n; j += i) {
-                    isPrime[j] = false;
+                    checkPrime[j] = false;
                 }
             }
         }
 
         int cnt = 0;
         for (int i = 2; i < n; i++) {
-            if (isPrime[i]) cnt++;
+            if (checkPrime[i]) cnt++;
         }
 
         return cnt;   
