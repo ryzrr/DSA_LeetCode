@@ -1,12 +1,12 @@
 class Solution {
 public:
-    vector<vector<int>> result;
+    vector<vector<int>> ans;
 
     void backtrack(vector<int>& candidates, int target, int start,
                    vector<int>& path) {
 
         if (target == 0) {
-            result.push_back(path);
+            ans.push_back(path);
             return;
         }
 
@@ -24,6 +24,6 @@ public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<int> path;
         backtrack(candidates, target, 0, path);
-        return result;
+        return ans;
     }
 };
