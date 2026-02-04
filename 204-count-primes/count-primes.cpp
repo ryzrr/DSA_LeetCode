@@ -15,11 +15,11 @@ public:
             }
         }
 
-        int cnt = 0;
+        int count = 0;
         for (int i = 2; i < n; i++) {
-            if (checkPrime[i]) cnt++;
+            if (checkPrime[i]) count++;
         }
 
-        return cnt;   
+        return count;   
     }
 };
