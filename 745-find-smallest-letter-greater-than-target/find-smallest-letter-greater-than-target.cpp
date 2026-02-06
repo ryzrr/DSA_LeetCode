@@ -1,10 +1,10 @@
 class Solution {
 public:
-    char nextGreatestLetter(vector<char>& letters, char target) {
-        for (int i = 0; i < letters.size(); i++) {
-            if (letters[i] > target)
-                return letters[i];
+    char nextGreatestLetter(vector<char>& lett, char target) {
+        for (int i = 0; i < lett.size(); i++) {
+            if (lett[i] > target)
+                return lett[i];
         }
-        return letters[0];
+        return lett[0];
     }
 };
