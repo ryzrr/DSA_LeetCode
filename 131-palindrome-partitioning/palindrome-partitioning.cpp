@@ -1,0 +1,32 @@
+class Solution {
+public: 
+    vector<vector<string>> ans;
+    vector<string> ds;
+
+    bool isPalindrome(string &s, int l, int r) {
+        while (l < r) {
+            if (s[l++] != s[r--]) return false;
+        }
+        return true;
+    }
+
+    void solve(int ind, string &s) {
+        if (ind == s.size()) {
+            ans.push_back(ds);
+            return;
+        }
+
+        for (int i = ind; i < s.size(); i++) {
+            if (isPalindrome(s, ind, i)) {
+                ds.push_back(s.substr(ind, i - ind + 1));
+                solve(i + 1, s);
+                ds.pop_back();
+            }
+        }
+    }
+
+    vector<vector<string>> partition(string s) {
+        solve(0, s);
+        return ans;
+    }
+};
