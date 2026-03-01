@@ -1,14 +1,14 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-     int j =0,c=0,f=0;
+     int jump =0,currIndex=0,farthest=0;
      for(int i=0; i<nums.size()-1;i++){
-        f= max (f,i+nums[i]);
-        if(i==c){
-            j++;
-            c=f;
+        farthest= max (farthest,i+nums[i]);
+        if(i==currIndex){
+            jump++;
+            currIndex=farthest;
         }
      }    
-     return j;
+     return jump;
     }
 };
