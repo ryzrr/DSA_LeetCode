@@ -37,6 +37,6 @@ public:
             }
                ans= max (ans, last-first+1); 
         }
-        return ans; 
+        return (int)ans; 
     }
 };
