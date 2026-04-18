@@ -15,22 +15,47 @@ public:
         // vector<int> result;
         // solve(root, result);
         // return result;
-        if(root == NULL) return {};
-        vector<int>ans;
-        stack<TreeNode*> st;
-        st.push(root);
-        while(!st.empty()){
-            root =st.top();
-            st.pop();
-            ans.push_back(root->val);
-            if(root->right!=NULL) {
-                st.push(root->right);
+        // if(root == NULL) return {};
+        // vector<int>ans;
+        // stack<TreeNode*> st;
+        // st.push(root);
+        // while(!st.empty()){
+        //     root =st.top();
+        //     st.pop();
+        //     ans.push_back(root->val);
+        //     if(root->right!=NULL) {
+        //         st.push(root->right);
+        //         }
+        //     if(root->left!=NULL) {
+        //         st.push(root->left);
+        //         }
+        // }
+        // return ans;
+          vector<int> ans;
+            TreeNode* curr  = root;
+            while(curr!=NULL){
+                if(curr->left == NULL){
+                    ans.push_back(curr->val);
+                    curr=curr->right;
                 }
-            if(root->left!=NULL) {
-                st.push(root->left);
+                else{
+                    TreeNode* pred =  curr->left;
+                    while(pred->right && pred->right != curr){
+                        pred = pred->right;                    
+                    }
+                    if(pred->right == NULL ){
+                            pred->right = curr;
+                            ans.push_back(curr->val);
+                            curr = curr->left;
+                    }
+                    else{
+                        pred->right = NULL ;
+                        
+                        curr = curr ->right;
+                    }
                 }
-        }
-        return ans;
+            }
+            return ans ;
         
     }
 
