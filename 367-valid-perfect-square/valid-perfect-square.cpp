@@ -1,20 +1,20 @@
 class Solution {
 public:
-    bool isPerfectSquare(int num) {
+    bool isPerfectSquare(int number) {
         // Base case: 1 ek perfect square hai (1 * 1 = 1)
-        if (num == 1) return true;
+        if (number == 1) return true;
 
         long long left = 1;
-        long long right = num; // Search space 1 se num tak
+        long long right = number; // Search space 1 se number tak
 
         while (left <= right) {
             long long mid = left + (right - left) / 2;
             long long square = mid * mid; // Mid ka square nikaalo 
 
-            if (square == num) {
+            if (square == number) {
                 return true; // Mil gaya!
             } 
-            else if (square < num) {
+            else if (square < number) {
                 left = mid + 1; // Square chota hai, toh aage dhundho
             } 
             else {
