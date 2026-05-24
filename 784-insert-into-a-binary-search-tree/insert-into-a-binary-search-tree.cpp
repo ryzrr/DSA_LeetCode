@@ -12,41 +12,28 @@
 class Solution {
 public:
     TreeNode* insertIntoBST(TreeNode* root, int val) {
-        // Base Case: Agar tree poori tarah khali hai
-        if (root == NULL) {
-            return new TreeNode(val);
-        }
-        
-        TreeNode* curr = root;
-        
-        while (true) {
-            // Case 1: Value choti hai, Left jana padega
-            if (val < curr->val) {
-                // Agar left mein jagah khali hai, toh naya node wahi laga do
-                if (curr->left == NULL) {
-                    curr->left = new TreeNode(val);
-                    break; // Node lag gaya, loop se bahar aao
-                } 
-                // Agar khali nahi hai, toh left aage badh jao
-                else {
-                    curr = curr->left;
-                }
-            } 
-            // Case 2: Value badi hai, Right jana padega
-            else {
-                // Agar right mein jagah khali hai, toh naya node wahi laga do
-                if (curr->right == NULL) {
-                    curr->right = new TreeNode(val);
-                    break; // Node lag gaya, loop se bahar aao
-                } 
-                // Agar khali nahi hai, toh right aage badh jao
-                else {
+        if(root == NULL)return new TreeNode(val);
+        TreeNode *curr = root ;
+        while(true){
+            if(curr->val <= val){
+                if(curr->right != NULL){
                     curr = curr->right;
+                }
+                else{
+                    curr->right = new TreeNode(val);
+                    break;
+                }
+            }
+            else{
+                if(curr->left!= NULL){
+                    curr =  curr ->left;
+                }
+                else{
+                    curr->left = new TreeNode(val);
+                    break;
                 }
             }
         }
-        
-        // Tree ka head (root) wapas kar do
         return root;
     }
 };
