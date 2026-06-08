@@ -9,8 +9,8 @@ public:
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
         for(auto& it : countMap) {
             int number = it.first;
-            int frequency = it.second;
-            minHeap.push({frequency, number});
+            int freq = it.second;
+            minHeap.push({freq, number});
             if(minHeap.size() > k) {
                 minHeap.pop();
             }
