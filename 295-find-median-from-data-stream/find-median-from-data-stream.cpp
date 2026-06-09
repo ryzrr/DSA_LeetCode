@@ -32,8 +32,8 @@ public:
     
     double findMedian() {
         if(left_max.size() == right_min.size()){
-            double ans;
-           return ans = (left_max.top() + right_min.top())/2.0;
+            
+           return (left_max.top() + right_min.top())/2.0;
         }
         else return left_max.top();
     }
