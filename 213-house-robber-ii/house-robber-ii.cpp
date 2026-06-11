@@ -1,6 +1,6 @@
 class Solution {
 public:
-    // Yeh tumhara wala logic hai, bilkul sahi
+    // house    robber    1  ka logic  hai yeh  
     int robLinear(vector<int>& nums) {
         int n = nums.size();
         if(n == 0) return 0;
