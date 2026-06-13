@@ -1,12 +1,12 @@
 class Solution {
 public:
     int leastInterval(vector<char>& tasks, int n) {
-        vector<int> mpp(26,0);
+        vector<int> mp(26,0);
         for(char &ch : tasks ){
-            mpp[ch -'A']++;
+            mp[ch -'A']++;
         }
         priority_queue<int>p;
-        for(auto &it : mpp){
+        for(auto &it : mp){
             if(it>0){
                 p.push(it);
             }
