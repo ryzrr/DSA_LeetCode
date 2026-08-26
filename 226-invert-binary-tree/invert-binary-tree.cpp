@@ -12,15 +12,20 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-          if (root == nullptr) return nullptr;   // base case: khali node
+        if (root == nullptr) return nullptr;
 
-        // pehle dono subtrees ko invert karo
-        TreeNode* leftInverted = invertTree(root->left);
-        TreeNode* rightInverted = invertTree(root->right);
+        queue<TreeNode*> q;
+        q.push(root);
 
-        // ab swap kar do
-        root->left = rightInverted;
-        root->right = leftInverted;
+        while (!q.empty()) {
+            TreeNode* node = q.front();
+            q.pop();
+
+            swap(node->left, node->right);   // seedha swap kar do
+
+            if (node->left) q.push(node->left);
+            if (node->right) q.push(node->right);
+        }
 
         return root;
     }
