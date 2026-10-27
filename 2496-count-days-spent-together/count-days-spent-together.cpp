@@ -4,10 +4,10 @@ public:
           int month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
         auto toDay = [&](string s) {
-            int m = stoi(s.substr(0, 2));
+            int mo = stoi(s.substr(0, 2));
             int d = stoi(s.substr(3, 2));
             int total = 0;
-            for (int i = 0; i < m - 1; i++) {
+            for (int i = 0; i < mo - 1; i++) {
                 total += month[i];
             }
             return total + d;
